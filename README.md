@@ -13,6 +13,10 @@ Exemplo:
 Tarefas / Quem vai pegar
 
 1 - Navbar = ????
+
 2 - Carousel = ????
+
 3 - Espaço puxar Localização = ????
+
 4 - Cards dos eventos = ????
+
