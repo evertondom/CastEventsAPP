@@ -37,3 +37,7 @@ button {
 .search {
   height: 22px;
 }
+
+ul{
+  text-align: end;
+}
