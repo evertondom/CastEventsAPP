@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AjudaComponent } from './ajuda/ajuda.component';
+import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     CadastroComponent,
     LoginComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    AjudaComponent,
+    SobreNosComponent
   ],
   imports: [
     BrowserModule,

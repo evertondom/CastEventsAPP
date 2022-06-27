@@ -1,0 +1,13 @@
+.centralizar{
+  margin-left: 50%;
+}
+
+.blocoTexto{
+  margin-top: 2cm;
+  padding: 5px;
+  background-color: lightgray;
+  border-radius: 5%;
+  text-align: justify;
+  justify-content: b;
+
+}
