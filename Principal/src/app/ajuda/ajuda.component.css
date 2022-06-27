@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Bree+Serif&display=swap');
+
+
+.imgBoneco {
+  flex: auto;
+  padding-top:50px;
+  padding-left: 40%;
+  width:100%;
+
+}
+.fundo{
+
+  justify-items: center;
+  align-items: middle;
+  top:25%;
+  background-color: antiquewhite;
+  margin-left: 2cm;
+  height: auto;
+  border-radius: 99%;
+}
+
+.campoDireitaSuperior{
+  justify-items: center;
+  align-items: middle;
+  font-family: 'Bitter', serif;
+  font-family: 'Bree Serif', serif;
+  font-size: x-large;
+  position: absolute;
+  top:25%;
+}
+
+.campoDebaixo{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: antiquewhite;
+  padding-top: 10%;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+
+}

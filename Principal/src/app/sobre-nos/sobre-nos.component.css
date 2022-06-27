@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
 .centralizar{
   margin-left: 50%;
 }
 
 .blocoTexto{
-  margin-top: 2cm;
-  padding: 5px;
-  background-color: lightgray;
+
+  padding: 15px;
+  background-color: rgb(221, 221, 221);
   border-radius: 5%;
   text-align: justify;
-  justify-content: b;
+  justify-content: end;
+  font-family: 'Roboto', sans-serif;
 
 }
+
+.sobreNos{
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Bree Serif', serif;
+  margin-top: 1cm;
+}
+.castEvents{
+  color: rgb(41, 41, 207);
+}
+
+
