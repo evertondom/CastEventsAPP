@@ -37,6 +37,7 @@ export class EventosService {
 
   ExcluiEvento(eventoId: number): Observable<any> {
     const apiUrl = `${this.url}/${eventoId}`;
+    console.log(apiUrl)
     return this.http.delete<number>(apiUrl, httpOptions);
   }
 }

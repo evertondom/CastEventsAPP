@@ -1,5 +1,5 @@
 export class Evento {
-  evntoId: number;
+  id: number;
   nome: string;
   capacidadeTotal: number;
   imagemUrl: string;
