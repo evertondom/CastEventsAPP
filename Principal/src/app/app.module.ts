@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AjudaComponent } from './ajuda/ajuda.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+import { CriarEventoComponent } from './criar-evento/criar-evento.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
     HomeComponent,
     FooterComponent,
     AjudaComponent,
-    SobreNosComponent
+    SobreNosComponent,
+    CriarEventoComponent
   ],
   imports: [
     BrowserModule,
