@@ -1,26 +1,63 @@
 <app-navbar></app-navbar>
 
-<div class="container-flex-fluid text-center">
+<div class="container-flex-fluid text-center espaco">
   <div class="row">
     <div class="col-6 flex-fluid">
-      <div class="text-center imgBoneco">
-        <img
-          class="img-fluid"
-          [src]="imagemHelp1"
-          alt="Boneco-Segurando-placa-Ajuda"
-        />
-      </div>
+      <!-- Table esquerda-->
+      <br />
+      <table class="">
+        <th></th>
+        <tr>
+          <td>
+            <img
+              class="Boneco"
+              [src]="imagemHelp1"
+              alt="Boneco-Segurando-placa-Ajuda"
+            />
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="col-2 fundo">
-      <div class="campoDireitaSuperior center-block">Precisa de Ajuda?</div>
+
+    <div class="col-4 flex-fluid">
+      <!-- Table direita-->
+      <span class="TextoPrecisaAjuda">Precisa de ajuda?</span>
+
+      <form class="fundoForm text-center">
+        <div class="form-group">
+          <label for="ControlName">Nome Completo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="ControlName"
+            placeholder="Juan Guanabara"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ControleEmail">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="ControleEmail"
+            placeholder="nome@example.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Example textarea</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="reset" class="btn btn-secondary entreBotoes">
+          Apagar
+        </button>
+        <br /><br />
+      </form>
     </div>
   </div>
 </div>
-
-<div class="row ">
-  <div class="col-12 center-block ">
-    <div class="campoDebaixo">oi aaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-  </div>
-</div>
-
 <app-footer class="fixed-bottom"></app-footer>
