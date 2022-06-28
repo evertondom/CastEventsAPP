@@ -52,7 +52,7 @@ export class CardComponent implements OnInit {
   constructor(private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.eventosService.PegarTodos().subscribe(resultado => {
+    this.eventosService.RecuperaTodos().subscribe(resultado => {
       this.eventos = resultado;
     })
   }
