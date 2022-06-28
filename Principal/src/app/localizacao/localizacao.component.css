@@ -19,6 +19,35 @@
 }
 
 .boraLateralFi{
-margin-top: 15px;
+  display: flex;
+}
+.boraEsquerda{
+  margin-right: 4%;
 }
 
+.InfoLocalizacao{
+  font-size: larger;
+  margin-top: 15px;
+  margin-left: 50px;
+  padding: 5px;
+  width: auto;
+  height: fit-content;
+  background-color: whitesmoke;
+  border-radius: 5%;
+}
+
+.InfoLocalizacao1{
+  margin-top: 15px;
+  margin-left: 25%;
+  width: 50%;
+  height: 70px;
+  background-color: whitesmoke;
+  border-radius: 5%;
+
+}
+
+.InfoLocalizacao2Texto{
+padding: 4px;
+  margin-top: px;
+font-size: larger;
+}
