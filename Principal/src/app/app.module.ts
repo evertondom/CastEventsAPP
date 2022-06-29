@@ -1,3 +1,4 @@
+import { CompraComponent } from './telas/compra/compra.component';
 import { UsersService } from './users.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,7 +31,8 @@ import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
     HomeComponent,
     FooterComponent,
     AjudaComponent,
-    SobreNosComponent
+    SobreNosComponent,
+    CompraComponent
   ],
   imports: [
     BrowserModule,
