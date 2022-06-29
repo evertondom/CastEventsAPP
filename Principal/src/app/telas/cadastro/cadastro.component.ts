@@ -8,11 +8,13 @@ import { User } from 'src/app/User';
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css']
 })
+
 export class CadastroComponent implements OnInit {
 
   formulario: any;
   tituloFormulario!: string;
   users: User[];
+
 
 
   constructor(private usersService: UsersService) { }
