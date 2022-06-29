@@ -13,11 +13,18 @@ export class CadastroComponent implements OnInit {
 
   formulario: any;
   tituloFormulario!: string;
+  users: User[];
+
 
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+
+    this.usersService.PegarTodos().subscribe(resultado => {
+      this.users = resultado;
+    })
+
     this.tituloFormulario = 'Cadastre-se';
 
     this.formulario = new FormGroup({

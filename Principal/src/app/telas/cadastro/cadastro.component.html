@@ -47,4 +47,36 @@
     </form>
   </div>
 </section>
+
+<div class="container">
+
+  <table class="table table-striped table-hover table-sm " >
+      
+          <tr class="thead-light">
+              <th>Nome</th>
+              <th>SobreNome</th>
+              <th>CPF</th>
+              <th>Email</th>
+              <th>Senha</th>
+              <th>DataNascimento</th>
+              <th>Telefone</th>
+
+          </tr>
+          <tr *ngFor="let user of users">
+              <td>{{user.nome}}</td>
+              <td>{{user.sobrenome}}</td>
+              <td>{{user.cpf}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.senha}}</td>
+              <td>{{user.dataNascimento}}</td>
+              <td>{{user.telefone}}</td>
+              <td>
+                  <button type="button" class="bt btn-sm">Editar</button> |
+                  <button type="button" class="bt btn-sm">Deletar</button>
+                </td>
+              </tr>
+      </table>
+  
+  </div>
+  
 <app-footer class="fixed-bottom"></app-footer>
