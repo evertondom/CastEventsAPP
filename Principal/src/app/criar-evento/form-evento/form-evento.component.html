@@ -1,0 +1,42 @@
+<section class="corpo">
+    <div class="container py-5 h-100">
+      <form class="row g-3" [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+        <div class="col-10">
+          <label for="inputAddress" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="inputNome" formControlName="nome">
+        </div>
+        <div class="col-2">
+          <label for="inputAddress" class="form-label">Capacidade</label>
+          <input type="number" class="form-control" id="inputCapacidade" formControlName="capacidadeTotal">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">URL da Imagem</label>
+          <input type="text" class="form-control" id="inputImagemURl" formControlName="imagemUrl">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Data do Evento</label>
+          <input type="date" class="form-control" id="inputDataEvento" formControlName="data">
+        </div>
+        <div class="col-md-4">
+          <label for="inputCity" class="form-label">Descrição</label>
+          <input type="text" class="form-control" id="inputCPF" formControlName="descricao">
+        </div>
+        <div class="col-md-4">
+          <label for="inputCity" class="form-label">Valor Ingresso</label>
+          <input type="number" class="form-control" id="inputCPF" formControlName="valorIngresso">
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <div class="mx-1">
+            <button type="submit" class="btn btn-primary my-2">Cadastrar</button>
+          </div>
+          <div class="mx-1">
+            <button class="btn btn-danger btn-block my-2" type="reset">Limpar</button>
+          </div>
+          <div class="mx-1">
+            <a routerLink="/criar-evento">
+              <button class="btn btn-secondary  btn-block my-2" type="">Voltar</button></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>

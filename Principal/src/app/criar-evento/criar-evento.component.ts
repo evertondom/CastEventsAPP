@@ -17,28 +17,10 @@ export class CriarEventoComponent implements OnInit {
   constructor(private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.tituloFormulario = 'Cadastro de Eventos';
-
-    this.formulario = new FormGroup({
-      nome: new FormControl(null),
-      capacidadeTotal: new FormControl(null),
-      imagemUrl: new FormControl(null),
-      data: new FormControl(null),
-      descricao: new FormControl(null),
-      valorIngresso: new FormControl(null)
-    });
 
     this.eventosService.RecuperaTodos().subscribe(resultado => {
       this.eventos = resultado;
     });
-  }
-
-  EnviarFormulario(): void {
-    const evento: Evento = this.formulario.value;
-
-    this.eventosService.CriaEvento(evento).subscribe(
-      (resultado) => { alert('Evento cadstrado com sucesso!') }
-    );
   }
 
   EditaEvento(eventoId): void {

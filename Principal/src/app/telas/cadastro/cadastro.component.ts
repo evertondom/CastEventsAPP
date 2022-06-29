@@ -1,6 +1,5 @@
 import { UsersService } from './../../users.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { User } from 'src/app/User';
 
 @Component({
@@ -11,8 +10,6 @@ import { User } from 'src/app/User';
 
 export class CadastroComponent implements OnInit {
 
-  formulario: any;
-  tituloFormulario!: string;
   users: User[];
 
 
@@ -24,28 +21,24 @@ export class CadastroComponent implements OnInit {
     this.usersService.PegarTodos().subscribe(resultado => {
       this.users = resultado;
     })
-
-    this.tituloFormulario = 'Cadastre-se';
-
-    this.formulario = new FormGroup({
-      email: new FormControl(null),
-      senha: new FormControl(null),
-      nome: new FormControl(null),
-      sobrenome: new FormControl(null),
-      cpf: new FormControl(null),
-      dataNascimento: new FormControl(null),
-      telefone: new FormControl(null)
-    });
   }
 
-  EnviarFormulario(): void{
+  ExcluirCadastro(userId) {
+    this.usersService.ExcluirUser(userId).subscribe((resultado) =>{
+      alert('Excluido com sucesso!')
+      this.usersService.PegarTodos().subscribe(registros =>{
+        this.users = registros
+      })
+    })
+  }
 
-    const user: User = this.formulario.value;
+  EditarCadastro(userId){
 
-    this.usersService.SalvarUser(user)
-    .subscribe(
-      (resultado) =>{ alert('pessoa inserida com sucesso')
-    });
-
+    this.usersService.AtualizarUser(userId).subscribe((resultado) =>{
+      alert('Atualizado com sucesso!')
+      this.usersService.PegarTodos().subscribe(registros =>{
+        this.users = registros
+      })
+    })
   }
 }
