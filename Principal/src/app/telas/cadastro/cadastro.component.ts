@@ -10,9 +10,10 @@ import { User } from 'src/app/User';
 
 export class CadastroComponent implements OnInit {
 
-  users: User[];
+  users: User[]
+  usersFiltrados: any = []
 
-
+  private _filtroLista: string = ''
 
   constructor(private usersService: UsersService) { }
 
@@ -22,6 +23,23 @@ export class CadastroComponent implements OnInit {
       this.users = resultado;
     })
   }
+
+  public get filtroLista(){
+    return this._filtroLista
+  }
+
+  public set filtroLista(value: string){
+   this._filtroLista = value;
+   this.usersFiltrados = this.filtroLista ? this.filtrarCursos(this.filtroLista) : this.users;
+ }
+
+ filtrarCursos(filtrarPor: string): any{
+   filtrarPor = filtrarPor.toLocaleLowerCase();
+   return this.users.filter(
+     (users: {nome:string;email:string}) => users.nome.toLocaleLowerCase().indexOf(filtrarPor)!== -1 ||
+     users.email.toLocaleLowerCase().indexOf(filtrarPor)!== -1
+    );
+ }
 
   ExcluirCadastro(userId) {
     this.usersService.ExcluirUser(userId).subscribe((resultado) =>{
