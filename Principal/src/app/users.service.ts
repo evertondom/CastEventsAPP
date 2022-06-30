@@ -15,6 +15,9 @@ const httpOptions = {
 })
 
 export class UsersService {
+  ExcluirCadastro(userId: any) {
+    throw new Error('Method not implemented.');
+  }
   url = 'https://localhost:5001/api/Users'
 
   constructor(private http: HttpClient) { }
