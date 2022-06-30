@@ -6,19 +6,22 @@
     <br>
     <br>
     <div class="container">
-        <div class="row"> 
+        <div class="row">
             <div class="col-4">
-                <img src="#" alt="Imagem do Evento">
+                <img src="{{evento.imagemUrl}}" alt="Imagem do Evento" style="max-height: 80vh;">
             </div>
             <div class="col-8">
-                <h3>Aqui vai o nome do Evento</h3>
-                <p>Aqui vai o Local</p>
+                <h3>{{evento.nome}}</h3>
                 <br>
-                <p>qtdIngressosVendidos nas ultimas horas</p>
+                <p>{{evento.ingressosDisponiveis}}</p>
                 <br>
-                <h5>Aqui vai o preço</h5> <h5>Aqui o campo de quantidade dos ingressos</h5>
+                <h5>R$ {{evento.valorIngresso}}</h5>
+                <div [formGroup]="formulario">
+                  <h5 class="d-inline">Quantidade:</h5>
+                  <input formControlName="quantidadeIngresso" type="number" class="d-inline">
+                </div>
                 <br>
-                <h4>Total: </h4> <button class="btn btn-success">Finalizar Compra</button>
+                <h4>Total: </h4> <button class="btn btn-success" (click)="EnviaFormulario()">Finalizar Compra</button>
 
             </div>
         </div>

@@ -21,6 +21,9 @@ const routes: Routes = [
   {path: 'form', component: FormComponent},
   {path: 'criar-evento', component: CriarEventoComponent},
   {path: 'form-evento', component: FormEventoComponent}
+  {path: 'compra/evento', component: CompraComponent},
+
+
 
 ]
 

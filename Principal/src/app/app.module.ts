@@ -42,6 +42,7 @@ import { FormEventoComponent } from './criar-evento/form-evento/form-evento.comp
     FormComponent,
     FormEventoComponent
 
+
   ],
   imports: [
     BrowserModule,

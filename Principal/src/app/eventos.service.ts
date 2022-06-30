@@ -31,8 +31,9 @@ export class EventosService {
     return this.http.post<Evento>(this.url, evento, httpOptions)
   }
 
-  AtualizaEvento(evento: Evento): Observable<any> {
-    return this.http.put<Evento>(this.url, evento, httpOptions);
+  AtualizaEvento(eventoId: number, evento: Evento): Observable<any> {
+    const apiUrl = `${this.url}/${eventoId}`;
+    return this.http.put<Evento>(apiUrl, evento, httpOptions);
   }
 
   ExcluiEvento(eventoId: number): Observable<any> {

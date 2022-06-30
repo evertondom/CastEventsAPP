@@ -49,7 +49,7 @@ export class CriarEventoComponent implements OnInit {
 
       this.formulario = new FormGroup({
         nome: new FormControl(evento.nome),
-        capacidadeTotal: new FormControl(evento.capacidadeTotal),
+        capacidadeTotal: new FormControl(evento.ingressosDisponiveis),
         imagemUrl: new FormControl(evento.imagemUrl),
         data: new FormControl(evento.data),
         descricao: new FormControl(evento.descricao),

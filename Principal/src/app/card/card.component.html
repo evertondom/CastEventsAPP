@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">{{evento.nome}}</h5>
       <p class="card-text">{{evento.descricao}}</p>
-      <a routerLink="/compra" class="btn btn-primary ">Comprar ingressos</a>
+      <a [routerLink]="['/compra', 'evento']" [queryParams]="{id: evento.id}" class="btn btn-primary ">Comprar ingressos</a>
     </div>
   </div>
 </div>
