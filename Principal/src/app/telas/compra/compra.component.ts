@@ -17,6 +17,7 @@ export class CompraComponent implements OnInit {
   formulario: any;
   formularioEvento: any;
   tituloFormulario: string;
+  valorTotal: number = 0.00;
 
   constructor(private route: ActivatedRoute, private eventosService: EventosService, private ingressosService: IngressosService) { }
 
@@ -35,27 +36,30 @@ export class CompraComponent implements OnInit {
       eventoId: new FormControl(this.id),
       quantidadeIngresso: new FormControl(null)
     });
-
-
   }
 
   EnviaFormulario(): void {
     const ingresso: Ingresso = this.formulario.value;
 
-    if (ingresso.quantidadeIngresso > this.evento.ingressosDisponiveis) {
+    if (ingresso.quantidadeIngresso > this.evento.ingressosDisponiveis || ingresso.quantidadeIngresso == 0) {
       alert('Quantidade indisponível no momento.');
       return;
     }
 
-    console.log(this.evento);
+    this.valorTotal = ingresso.quantidadeIngresso * this.evento.valorIngresso;
+
     this.evento.ingressosDisponiveis -= ingresso.quantidadeIngresso;
-    console.log(this.evento);
     this.eventosService.AtualizaEvento(this.evento.id, this.evento).subscribe(resultado => {
-      alert('Será que vai?');
+      console.log('Será que vai?');
     });
 
     this.ingressosService.CriaIngresso(ingresso).subscribe(
-      (resultado) => { alert('Ingresso comprado') }
+      (resultado) => { console.log('Ingresso comprado') }
     );
+  }
+
+  CalculaPrecoTotal(): void {
+    const ingresso: Ingresso = this.formulario.value;
+    this.valorTotal = (this.evento.valorIngresso * ingresso.quantidadeIngresso);
   }
 }
