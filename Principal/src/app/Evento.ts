@@ -1,7 +1,7 @@
 export class Evento {
   id: number;
   nome: string;
-  capacidadeTotal: number;
+  ingressosDisponiveis: number;
   imagemUrl: string;
   data: string;
   descricao: string;

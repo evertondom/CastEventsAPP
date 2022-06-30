@@ -34,8 +34,7 @@ import { CriarEventoComponent } from './criar-evento/criar-evento.component';
     AjudaComponent,
     SobreNosComponent,
     CompraComponent,
-    CriarEventoComponent
-
+    CriarEventoComponent,
   ],
   imports: [
     BrowserModule,
