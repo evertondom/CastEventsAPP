@@ -9,7 +9,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompraComponent } from './telas/compra/compra.component';
 import { FormComponent } from './telas/cadastro/form/form.component';
-import { CriarEventoComponent } from './criar-evento/criar-evento.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch:'full'},
@@ -21,8 +20,8 @@ const routes: Routes = [
   {path: 'compra', component: CompraComponent},
   {path: 'form', component: FormComponent},
   {path: 'criar-evento', component: CriarEventoComponent},
-  {path: 'form-evento', component: FormEventoComponent}
-  {path: 'compra/evento', component: CompraComponent},
+  {path: 'form-evento', component: FormEventoComponent},
+  {path: 'compra/evento', component: CompraComponent}
 ]
 
 @NgModule({

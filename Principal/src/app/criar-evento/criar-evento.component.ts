@@ -12,25 +12,16 @@ import { EventosService } from '../eventos.service';
 export class CriarEventoComponent implements OnInit {
   formulario: any;
   tituloFormulario: string;
-  eventos: Evento[];
+  eventos: Evento[] = [];
   eventosFiltrados: any = [];
+
+  visibilidadeFormulario: boolean = false;
 
   private _filtroLista: string = '';
 
   constructor(private eventosService: EventosService) { }
 
   ngOnInit(): void {
-
-    this.tituloFormulario = 'Cadastro de Eventos';
-
-    this.formulario = new FormGroup({
-      nome: new FormControl(null),
-      ingressosDisponiveis: new FormControl(null),
-      imagemUrl: new FormControl(null),
-      data: new FormControl(null),
-      descricao: new FormControl(null),
-      valorIngresso: new FormControl(null)
-    });
 
     this.eventosService.RecuperaTodos().subscribe(resultado => {
       this.eventos = resultado;
@@ -43,10 +34,10 @@ export class CriarEventoComponent implements OnInit {
 
   public set filtroLista(value: string){
    this._filtroLista = value;
-   this.eventosFiltrados = this.filtroLista ? this.filtrarCursos(this.filtroLista) : this.eventos;
+   this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
  }
 
- filtrarCursos(filtrarPor: string): any{
+ filtrarEventos(filtrarPor: string): any{
    filtrarPor = filtrarPor.toLocaleLowerCase();
    return this.eventos.filter(
      (eventos: {nome:string;descricao:string}) => eventos.nome.toLocaleLowerCase().indexOf(filtrarPor)!== -1 ||
@@ -55,10 +46,12 @@ export class CriarEventoComponent implements OnInit {
  }
 
   EditaEvento(eventoId): void {
+    this.visibilidadeFormulario = true;
     this.eventosService.RecuperaPeloId(eventoId).subscribe(evento => {
       this.tituloFormulario = `Atualizar ${evento.nome}`;
 
       this.formulario = new FormGroup({
+        eventoId: new FormControl(evento.id),
         nome: new FormControl(evento.nome),
         capacidadeTotal: new FormControl(evento.ingressosDisponiveis),
         imagemUrl: new FormControl(evento.imagemUrl),
@@ -68,6 +61,16 @@ export class CriarEventoComponent implements OnInit {
       })
     })
   }
+  EnviarFormularioEditado(){
+    const evento: Evento = this.formulario.value;
+    this.eventosService.AtualizaEvento(evento.id, evento).subscribe((resultado)=> {
+      this.visibilidadeFormulario = false;
+      alert('Atualizado com sucesso!')
+      this.eventosService.RecuperaTodos().subscribe(registros => {
+        this.eventos = registros;
+      });  
+    })    
+  }
 
     ExcluiEvento(eventoId)  {
       this.eventosService.ExcluiEvento(eventoId).subscribe((resultado) => {
@@ -76,5 +79,8 @@ export class CriarEventoComponent implements OnInit {
           this.eventos = registros;
         });
       })
+    }
+    voltar(): void{
+      this.visibilidadeFormulario = false;
     }
 }
