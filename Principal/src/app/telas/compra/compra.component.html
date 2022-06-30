@@ -1,31 +1,48 @@
 <section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <img src="{{evento.imagemUrl}}" alt="Imagem do Evento" style="max-height: 80vh;">
-            </div>
-            <div class="col-8">
-                <h3>{{evento.nome}}</h3>
-                <br>
-                <p>{{evento.ingressosDisponiveis}}</p>
-                <br>
-                <h5>R$ {{evento.valorIngresso}}</h5>
-                <div [formGroup]="formulario">
-                  <h5 class="d-inline">Quantidade:</h5>
-                  <input formControlName="quantidadeIngresso" type="number" class="d-inline">
-                </div>
-                <br>
-                <h4>Total: </h4> <button class="btn btn-success" (click)="EnviaFormulario()">Finalizar Compra</button>
-
-            </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <img src="{{evento.imagemUrl}}" alt="Imagem do Evento" style="max-height: 80vh;">
+      </div>
+      <div class="col-8">
+        <h3>{{evento.nome}}</h3>
+        <br>
+        <p>Ingressos disponíveis: <b>{{evento.ingressosDisponiveis}}</b></p>
+        <br>
+        <h5>R$ {{evento.valorIngresso}}
+        </h5>
+        <div [formGroup]="formulario" class="d-inline">
+          <h5>Quantidade:</h5>
+          <select class="form-select d-inline mb-5" aria-label="Quantidade" formControlName="quantidadeIngresso" style="width: 150px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
+        <br>
+        <h4>Total: R$ {{valorTotal}}</h4>
+        <button class="btn btn-success" (click)="EnviaFormulario()">Finalizar Compra</button>
+
+      </div>
     </div>
+  </div>
 </section>
+
+<script>
+
+</script>
 
 <app-footer class="fixed-bottom"></app-footer>
