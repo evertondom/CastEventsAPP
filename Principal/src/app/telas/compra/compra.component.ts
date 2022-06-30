@@ -48,7 +48,6 @@ export class CompraComponent implements OnInit {
 
     this.valorTotal = ingresso.quantidadeIngresso * this.evento.valorIngresso;
 
-
     this.evento.ingressosDisponiveis -= ingresso.quantidadeIngresso;
     this.eventosService.AtualizaEvento(this.evento.id, this.evento).subscribe(resultado => {
       console.log('Será que vai?');
@@ -57,5 +56,10 @@ export class CompraComponent implements OnInit {
     this.ingressosService.CriaIngresso(ingresso).subscribe(
       (resultado) => { console.log('Ingresso comprado') }
     );
+  }
+
+  CalculaPrecoTotal(): void {
+    const ingresso: Ingresso = this.formulario.value;
+    this.valorTotal = (this.evento.valorIngresso * ingresso.quantidadeIngresso);
   }
 }

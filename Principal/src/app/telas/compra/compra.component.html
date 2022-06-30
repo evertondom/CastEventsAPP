@@ -19,7 +19,7 @@
         </h5>
         <div [formGroup]="formulario" class="d-inline">
           <h5>Quantidade:</h5>
-          <select class="form-select d-inline mb-5" aria-label="Quantidade" formControlName="quantidadeIngresso" style="width: 150px;">
+          <select class="form-select d-inline mb-5" aria-label="Quantidade" formControlName="quantidadeIngresso" style="width: 150px;" (click)="CalculaPrecoTotal()">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -33,16 +33,12 @@
           </select>
         </div>
         <br>
-        <h4>Total: R$ {{valorTotal}}</h4>
+        <h4>Total: R$ {{this.valorTotal}} </h4>
         <button class="btn btn-success" (click)="EnviaFormulario()">Finalizar Compra</button>
 
       </div>
     </div>
   </div>
 </section>
-
-<script>
-
-</script>
 
 <app-footer class="fixed-bottom"></app-footer>
