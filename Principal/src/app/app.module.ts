@@ -19,6 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AjudaComponent } from './ajuda/ajuda.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { CriarEventoComponent } from './criar-evento/criar-evento.component';
+import { FormComponent } from './telas/cadastro/form/form.component';
+import { FormEventoComponent } from './criar-evento/form-evento/form-evento.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { CriarEventoComponent } from './criar-evento/criar-evento.component';
     SobreNosComponent,
     CompraComponent,
     CriarEventoComponent,
+    FormComponent,
+    FormEventoComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,7 @@ import { CriarEventoComponent } from './criar-evento/criar-evento.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
+
   ],
   providers: [HttpClientModule, UsersService],
   bootstrap: [AppComponent]

@@ -13,33 +13,35 @@ export class CriarEventoComponent implements OnInit {
   formulario: any;
   tituloFormulario: string;
   eventos: Evento[];
+  eventosFiltrados: any = [];
+
+  private _filtroLista: string = '';
 
   constructor(private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.tituloFormulario = 'Cadastro de Eventos';
-
-    this.formulario = new FormGroup({
-      nome: new FormControl(null),
-      capacidadeTotal: new FormControl(null),
-      imagemUrl: new FormControl(null),
-      data: new FormControl(null),
-      descricao: new FormControl(null),
-      valorIngresso: new FormControl(null)
-    });
 
     this.eventosService.RecuperaTodos().subscribe(resultado => {
       this.eventos = resultado;
     });
   }
 
-  EnviarFormulario(): void {
-    const evento: Evento = this.formulario.value;
-
-    this.eventosService.CriaEvento(evento).subscribe(
-      (resultado) => { alert('Evento cadstrado com sucesso!') }
-    );
+  public get filtroLista(){
+    return this._filtroLista
   }
+
+  public set filtroLista(value: string){
+   this._filtroLista = value;
+   this.eventosFiltrados = this.filtroLista ? this.filtrarCursos(this.filtroLista) : this.eventos;
+ }
+
+ filtrarCursos(filtrarPor: string): any{
+   filtrarPor = filtrarPor.toLocaleLowerCase();
+   return this.eventos.filter(
+     (eventos: {nome:string;descricao:string}) => eventos.nome.toLocaleLowerCase().indexOf(filtrarPor)!== -1 ||
+     eventos.descricao.toLocaleLowerCase().indexOf(filtrarPor)!== -1
+    );
+ }
 
   EditaEvento(eventoId): void {
     this.eventosService.RecuperaPeloId(eventoId).subscribe(evento => {

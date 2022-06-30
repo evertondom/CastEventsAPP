@@ -1,7 +1,7 @@
 .retangulo{
   margin-left: 15px;
   width: 98%;
-  background-color: silver;
+  background-color: rgba(0, 0, 255, 0.364);
   height: 100px;
   border-radius:7px;
 
