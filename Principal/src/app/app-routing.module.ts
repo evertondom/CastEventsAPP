@@ -1,3 +1,4 @@
+import { CriarEventoComponent } from './criar-evento/criar-evento.component';
 import { FormEventoComponent } from './criar-evento/form-evento/form-evento.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { AjudaComponent } from './ajuda/ajuda.component';
@@ -22,9 +23,6 @@ const routes: Routes = [
   {path: 'criar-evento', component: CriarEventoComponent},
   {path: 'form-evento', component: FormEventoComponent}
   {path: 'compra/evento', component: CompraComponent},
-
-
-
 ]
 
 @NgModule({
