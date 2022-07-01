@@ -46,7 +46,7 @@ export class CadastroComponent implements OnInit {
     );
  }
 
-  ExcluirCadastro(id) {
+  ExcluirCadastro(id: number) {
     this.usersService.ExcluirUser(id).subscribe((resultado) =>{
       alert('Excluido com sucesso!')
       this.usersService.PegarTodos().subscribe(registros =>{
@@ -61,7 +61,7 @@ export class CadastroComponent implements OnInit {
       this.tituloFormulario = `Atualizar ${user.nome}`;
 
       this.formulario = new FormGroup({
-        id: new FormControl(userId.id),
+        id: new FormControl(user.id),
         email: new FormControl(user.email),
         senha: new FormControl(user.senha),
         nome: new FormControl(user.nome),

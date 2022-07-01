@@ -1,1 +1,8 @@
 
+svg {
+  color: black;
+}
+
+svg:hover {
+  color: white;
+}
