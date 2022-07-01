@@ -9,38 +9,33 @@
     </button></a>
   </div>
   <hr>
-  <div action="" class="form-inline">
-    <div class="form-group md-2">
-        <input class="form-control mb2-2" placeholder="Buscar" [(ngModel)]="filtroLista">
-    </div>
-  </div>
   <br>
   <section class="corpo">
     <div class="container py-5 h-100" *ngIf="visibilidadeFormulario">
       <form class="row g-3" [formGroup]="formulario" (ngSubmit)="EnviarFormularioEditado()">
         <div class="col-8">
           <label for="inputAddress" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="inputNome" formControlName="nome">
+          <input type="text" class="form-control" id="inputNome" formControlName="nome" required>
         </div>
         <div class="col-2">
           <label for="inputAddress" class="form-label">Ingressos Disponíveis</label>
-          <input type="number" class="form-control" id="inputCapacidade" formControlName="ingressosDisponiveis">
+          <input type="number" class="form-control" id="inputCapacidade" formControlName="ingressosDisponiveis" required>
         </div>
         <div class="col-12">
           <label for="inputAddress2" class="form-label">URL da Imagem</label>
-          <input type="text" class="form-control" id="inputImagemURl" formControlName="imagemUrl">
+          <input type="text" class="form-control" id="inputImagemURl" formControlName="imagemUrl" required>
         </div>
         <div class="col-md-4">
           <label for="inputState" class="form-label">Data do Evento</label>
-          <input type="date" class="form-control" id="inputDataEvento" formControlName="data">
+          <input type="date" class="form-control" id="inputDataEvento" formControlName="data" required>
         </div>
         <div class="col-md-4">
           <label for="inputCity" class="form-label">Descrição</label>
-          <input type="text" class="form-control" id="inputCPF" formControlName="descricao">
+          <input type="text" class="form-control" id="inputCPF" formControlName="descricao" required>
         </div>
         <div class="col-md-4">
           <label for="inputCity" class="form-label">Valor Ingresso</label>
-          <input type="number" class="form-control" id="inputCPF" formControlName="valorIngresso">
+          <input type="number" class="form-control" id="inputCPF" formControlName="valorIngresso" required>
         </div>
         <div class="d-flex flex-row-reverse">
           <div class="mx-1">
@@ -61,7 +56,6 @@
 <table class="table">
   <thead style="background: #242424; color: #F2F2F2;">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Nome</th>
       <th scope="col">Ingressos disponíveis</th>
       <th scope="col">Descrição</th>
@@ -71,7 +65,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let evento of eventos">
-      <th scope="row">{{evento.id}}</th>
       <td>{{evento.nome}}</td>
       <td>{{evento.ingressosDisponiveis}}</td>
       <td>{{evento.descricao}}</td>

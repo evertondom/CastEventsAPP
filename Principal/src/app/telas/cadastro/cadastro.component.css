@@ -6,3 +6,7 @@ svg {
 svg:hover {
   color: white;
 }
+
+tbody{
+  background-color: lightblue;
+}

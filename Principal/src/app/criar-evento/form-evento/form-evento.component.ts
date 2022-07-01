@@ -34,7 +34,7 @@ export class FormEventoComponent implements OnInit {
     const evento: Evento = this.formulario.value;
 
     this.eventosService.CriaEvento(evento).subscribe(
-      (resultado) => { alert('Evento cadstrado com sucesso!') }
+      (resultado) => { alert('Evento cadastrado com sucesso!') }
     );
   }
 

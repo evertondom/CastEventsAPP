@@ -1,44 +1,11 @@
 .logo {
-  max-height: 25px;
+  max-height: 40px;
   vertical-align: middle;
-}
-
-form {
-  background-color: rgb(231, 231, 231);
-  width: 300px;
-  height: 44px;
-  border-radius: 5px;
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-}
-
-input {
-  all: unset;
-  font: 16px system-ui;
-  color: #444;
-  height: 100%;
-  width: 100%;
-  padding: 6px 10px;
-}
-
-::placeholder {
-  color: #444;
-  opacity: 0.7;
-}
-
-button {
-  all: unset;
-  cursor: pointer;
-  width: 44px;
-  height: 44px;
-}
-
-.search {
-  height: 22px;
 }
 
 ul{
   text-align: end;
 }
-
+a{
+  font-weight: 600;
+}
