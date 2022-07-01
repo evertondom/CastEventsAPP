@@ -6,7 +6,7 @@
   <div class="border border-light rounded p-5">
     <a routerLink="/form-evento"><button type="button" class="btn btn-sm btn-secondary">
        Adicionar
-    </button></a> 
+    </button></a>
   </div>
   <hr>
   <div action="" class="form-inline">
@@ -17,18 +17,18 @@
   <br>
   <section class="corpo">
     <div class="container py-5 h-100" *ngIf="visibilidadeFormulario">
-      <form class="row g-3" [formGroup]="formulario">
+      <form class="row g-3" [formGroup]="formulario" (ngSubmit)="EnviarFormularioEditado()">
         <div class="col-2">
           <label for="inputAddress" class="form-label">Id</label>
-          <input type="text" class="form-control" id="disabledInput" formControlName="eventoId">
+          <input type="text" class="form-control" formControlName="id" readonly>
         </div>
         <div class="col-8">
           <label for="inputAddress" class="form-label">Nome</label>
           <input type="text" class="form-control" id="inputNome" formControlName="nome">
         </div>
         <div class="col-2">
-          <label for="inputAddress" class="form-label">Capacidade</label>
-          <input type="number" class="form-control" id="inputCapacidade" formControlName="capacidadeTotal">
+          <label for="inputAddress" class="form-label">Ingressos Disponíveis</label>
+          <input type="number" class="form-control" id="inputCapacidade" formControlName="ingressosDisponiveis">
         </div>
         <div class="col-12">
           <label for="inputAddress2" class="form-label">URL da Imagem</label>
@@ -48,7 +48,7 @@
         </div>
         <div class="d-flex flex-row-reverse">
           <div class="mx-1">
-            <button type="submit" class="btn btn-primary my-2" (click)= "EnviarFormularioEditado()">Cadastrar</button>
+            <button type="submit" class="btn btn-primary my-2">Cadastrar</button>
           </div>
           <div class="mx-1">
             <button class="btn btn-danger btn-block my-2" type="reset">Limpar</button>
@@ -67,7 +67,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nome</th>
-      <th scope="col">Capacidade Total</th>
+      <th scope="col">Ingressos disponíveis</th>
       <th scope="col">Descrição</th>
       <th scope="col">Data</th>
       <th scope="col">Ações</th>
