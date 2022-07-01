@@ -23,7 +23,6 @@ import { FormComponent } from './telas/cadastro/form/form.component';
 import { FormEventoComponent } from './criar-evento/form-evento/form-evento.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

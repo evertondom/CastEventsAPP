@@ -28,59 +28,62 @@ export class CriarEventoComponent implements OnInit {
     });
   }
 
-  public get filtroLista(){
-    return this._filtroLista
-  }
-
-  public set filtroLista(value: string){
-   this._filtroLista = value;
-   this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
- }
-
- filtrarEventos(filtrarPor: string): any{
-   filtrarPor = filtrarPor.toLocaleLowerCase();
-   return this.eventos.filter(
-     (eventos: {nome:string;descricao:string}) => eventos.nome.toLocaleLowerCase().indexOf(filtrarPor)!== -1 ||
-     eventos.descricao.toLocaleLowerCase().indexOf(filtrarPor)!== -1
-    );
- }
-
   EditaEvento(eventoId): void {
-    this.visibilidadeFormulario = true;
+
     this.eventosService.RecuperaPeloId(eventoId).subscribe(evento => {
       this.tituloFormulario = `Atualizar ${evento.nome}`;
 
       this.formulario = new FormGroup({
-        eventoId: new FormControl(evento.id),
+        id: new FormControl(evento.id),
         nome: new FormControl(evento.nome),
-        capacidadeTotal: new FormControl(evento.ingressosDisponiveis),
+        ingressosDisponiveis: new FormControl(evento.ingressosDisponiveis),
         imagemUrl: new FormControl(evento.imagemUrl),
         data: new FormControl(evento.data),
         descricao: new FormControl(evento.descricao),
         valorIngresso: new FormControl(evento.valorIngresso)
       })
-    })
+
+      this.visibilidadeFormulario = true;
+    });
   }
-  EnviarFormularioEditado(){
+  EnviarFormularioEditado() {
     const evento: Evento = this.formulario.value;
-    this.eventosService.AtualizaEvento(evento.id, evento).subscribe((resultado)=> {
+
+    this.eventosService.AtualizaEvento(evento.id, evento).subscribe((resultado) => {
       this.visibilidadeFormulario = false;
       alert('Atualizado com sucesso!')
       this.eventosService.RecuperaTodos().subscribe(registros => {
         this.eventos = registros;
-      });  
-    })    
+      });
+    })
   }
 
-    ExcluiEvento(eventoId)  {
-      this.eventosService.ExcluiEvento(eventoId).subscribe((resultado) => {
-        alert('excluido com sucesso');
-        this.eventosService.RecuperaTodos().subscribe(registros => {
-          this.eventos = registros;
-        });
-      })
-    }
-    voltar(): void{
-      this.visibilidadeFormulario = false;
-    }
+  public get filtroLista() {
+    return this._filtroLista
+  }
+
+  public set filtroLista(value: string) {
+    this._filtroLista = value;
+    this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
+  }
+
+  filtrarEventos(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.eventos.filter(
+      (eventos: { nome: string; descricao: string }) => eventos.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
+        eventos.descricao.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+    );
+  }
+
+  ExcluiEvento(eventoId) {
+    this.eventosService.ExcluiEvento(eventoId).subscribe((resultado) => {
+      alert('excluido com sucesso');
+      this.eventosService.RecuperaTodos().subscribe(registros => {
+        this.eventos = registros;
+      });
+    })
+  }
+  voltar(): void {
+    this.visibilidadeFormulario = false;
+  }
 }
