@@ -18,10 +18,6 @@
   <section class="corpo">
     <div class="container py-5 h-100" *ngIf="visibilidadeFormulario">
       <form class="row g-3" [formGroup]="formulario" (ngSubmit)="EnviarFormularioEditado()">
-        <div class="col-2">
-          <label for="inputAddress" class="form-label">Id</label>
-          <input type="text" class="form-control" formControlName="id" readonly>
-        </div>
         <div class="col-8">
           <label for="inputAddress" class="form-label">Nome</label>
           <input type="text" class="form-control" id="inputNome" formControlName="nome">
