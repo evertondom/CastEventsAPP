@@ -36,7 +36,8 @@ export class UsersService {
   }
 
   AtualizarUser(user: User): Observable<any> {
-    return this.http.put<User>(this.url, user, httpOptions);
+    const apiUrl = `${this.url}/${user.id}`
+    return this.http.put<User>(apiUrl, user, httpOptions);
   }
 
   ExcluirUser(userId: number): Observable<any> {

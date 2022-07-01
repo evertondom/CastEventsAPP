@@ -29,17 +29,18 @@ export class FormComponent implements OnInit {
       dataNascimento: new FormControl(null),
       telefone: new FormControl(null)
     });
-
 }
     EnviarFormulario(): void{
 
       const user: User = this.formulario.value;
-  
+      console.log(user);
+      console.log(user.nome);
+
       this.usersService.SalvarUser(user)
       .subscribe(
         (resultado) =>{ alert('pessoa inserida com sucesso')
       });
-  
+
     }
-    
+
 }
